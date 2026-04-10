@@ -1,14 +1,16 @@
-﻿Amazon Sales – Data Engineering & Dimensional Modeling
-Executive Summary
+﻿🛒 Amazon Sales – Data Engineering & Dimensional Modeling
+Proyecto integral de ingeniería de datos sobre un dataset transaccional de ventas tipo e-commerce, implementado con Spark + SQL.
 
-Este proyecto implementa un proceso completo de ingeniería de datos sobre un dataset transaccional de ventas tipo e-commerce (Amazon Sales).
+📌 Descripción
+Procesa un dataset de ventas online con más de 1M registros.
 
-Se realizó auditoría de calidad, limpieza estructurada, validación de métricas financieras, modelado dimensional tipo estrella y generación de métricas estratégicas utilizando Spark y SQL.
+Incluye auditoría de calidad, limpieza estructurada y validación financiera.
 
-El notebook documenta el flujo completo desde la exploración inicial hasta la construcción del modelo analítico final.
+Implementa un modelo dimensional tipo estrella para análisis escalable.
 
-Business Context
+Genera métricas estratégicas alineadas al negocio.
 
+🏢 Contexto Empresarial
 Un entorno de ventas online requiere:
 
 Validar consistencia financiera de ingresos.
@@ -21,44 +23,16 @@ Construir un modelo analítico escalable.
 
 Generar métricas estratégicas por producto, cliente y tiempo.
 
-El objetivo fue diseñar una solución estructural que permita análisis confiable y extensible.
+🔍 Auditoría de Datos y Validación
+Valores nulos → conteo y control por columna.
 
-Data Audit & Quality Validation
+Campos críticos → validación de Precio, Cantidad e Ingresos.
 
-Se ejecutó una auditoría técnica inicial del dataset:
+Duplicados → identificación con claves naturales (OrderID).
 
-Null Validation
+Validación financiera → ingresos calculados como Precio * Cantidad vs. campo original.
 
-Conteo de valores nulos por columna.
-
-Validación de campos críticos: Price, Quantity, Revenue.
-
-Confirmación de integridad en claves naturales.
-
-Duplicate Detection
-
-Identificación de posibles duplicados usando claves naturales (OrderID / combinación relevante).
-
-Validación de unicidad en transacciones.
-
-Financial Formula Validation
-
-Se validó la consistencia de ingresos:
-
-Revenue = Price * Quantity
-
-Creación de columna calculada.
-
-Comparación contra campo Revenue original.
-
-Identificación de posibles desviaciones.
-
-Esta validación demuestra control de integridad financiera.
-
-Data Transformation Layer
-
-Se realizaron transformaciones estructurales:
-
+🧹 Transformaciones
 Normalización de tipos de datos.
 
 Creación de columna Profit.
@@ -67,13 +41,8 @@ Limpieza de inconsistencias detectadas.
 
 Preparación para modelado dimensional.
 
-Las transformaciones fueron ejecutadas en Spark dentro del notebook.
-
-Dimensional Modeling
-
-Se implementó un modelo estrella compuesto por:
-
-Dimensions
+🏗️ Modelado Dimensional (Estrella)
+Dimensiones:
 
 dim_product
 
@@ -81,27 +50,16 @@ dim_customer
 
 dim_date
 
-Fact Table
+Tabla de hechos:
 
 fact_sales
 
-Se separaron claves naturales y se construyó estructura analítica optimizada para consultas agregadas.
+Este diseño permite análisis temporal eficiente, segmentación por cliente/producto y escalabilidad futura.
 
-Este diseño permite:
+📈 Métricas Estratégicas
+Ingresos totales.
 
-Análisis temporal eficiente.
-
-Segmentación por cliente y producto.
-
-Escalabilidad futura.
-
-Business Metrics Layer
-
-Se desarrollaron métricas estratégicas:
-
-Revenue total.
-
-Profit total.
+Beneficio total.
 
 Top productos por ventas.
 
@@ -109,31 +67,21 @@ Ventas mensuales.
 
 Ventas por categoría.
 
-Consultas ejecutadas vía SQL dentro del notebook.
-
-Architecture Flow
-
-Raw Dataset
-→ Data Profiling
-→ Quality Validation
-→ Data Cleaning
-→ Dimensional Modeling
-→ Aggregated Metrics
-
-Technical Highlights
-
+⚙️ Flujo de Arquitectura
+Código
+Raw Dataset → Perfilado → Validación de Calidad → Limpieza → Modelado Dimensional → Métricas Agregadas
+⭐ Aspectos Técnicos Destacados
 Validación financiera estructural.
 
 Separación correcta de dimensiones y tabla de hechos.
 
-Modelado estrella implementado desde Spark.
+Modelo estrella implementado en Spark.
 
-Queries optimizadas para análisis de negocio.
+Consultas SQL optimizadas para análisis de negocio.
 
-Pipeline completo documentado en un único artefacto técnico.
+Pipeline completo documentado en un único notebook.
 
-Conclusion
-
+✅ Conclusión
 Este proyecto demuestra capacidad para:
 
 Auditar calidad de datos.
@@ -142,8 +90,14 @@ Implementar transformaciones estructuradas.
 
 Diseñar arquitectura analítica tipo estrella.
 
-Generar métricas alineadas a negocio.
+Generar métricas alineadas al negocio.
 
 Preparar datasets para consumo analítico o BI.
 
-El notebook representa un flujo completo de ingeniería de datos aplicado a un entorno de ventas transaccionales.
+👤 Autor
+Mauricio Vélez Rengifo  
+Ingeniero de Datos | Desarrollador Backend
+
+GitHub: Mvelezrengifo
+
+LinkedIn: Mauricio Vélez
